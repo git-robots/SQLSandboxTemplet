@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SandboxWebApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54d825fb0e43464b1a7c54af70adc17e0394e8af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ec4c1f97922fdf996b4f46fcabb915e2872e55f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SandboxWebApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SandboxWebApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
