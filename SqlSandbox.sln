@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandboxWebApplication", "SandboxWebApplication\SandboxWebApplication.csproj", "{0D17C154-8BD9-450C-8791-8C1CFA972DCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBoxMSTestProject", "SandBoxMSTestProject\SandBoxMSTestProject.csproj", "{CF13CC55-376C-4EA6-959A-14DD72565EDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{0D17C154-8BD9-450C-8791-8C1CFA972DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D17C154-8BD9-450C-8791-8C1CFA972DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D17C154-8BD9-450C-8791-8C1CFA972DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF13CC55-376C-4EA6-959A-14DD72565EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF13CC55-376C-4EA6-959A-14DD72565EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF13CC55-376C-4EA6-959A-14DD72565EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF13CC55-376C-4EA6-959A-14DD72565EDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
