@@ -1,4 +1,4 @@
 {
     "dotnet.defaultSolution": "SandboxWebApplication.sln",
-    "Trust server certificates": "true
+    "Trust server certificates": "true"
 }
