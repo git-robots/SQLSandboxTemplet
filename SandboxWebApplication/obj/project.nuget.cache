@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vP1klvFXx8b3vn5hYfDAFJEHBwM51wLQdWckdOSF0aQ5FuLowRi0VyQH0Rsn7wwntWQNyiPLNOVYG5Mjbz2Y3g==",
+  "dgSpecHash": "6aRzHWWYiLbe+zLGTkGXRLfHfc5wr8Zc7QKW5W+LLCFRjjK7eoYPiscRkZJ3HMfl+FMmrWHjfBCFZuDQb4l9kw==",
   "success": true,
-  "projectFilePath": "d:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj",
+  "projectFilePath": "/workspaces/SQLSandboxTemplet/SandboxWebApplication/SandboxWebApplication.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
