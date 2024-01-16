@@ -1,3 +1,15 @@
 {
-    "dotnet.defaultSolution": "SandboxWebApplication.sln"
+    "dotnet.defaultSolution": "SandboxWebApplication.sln",
+
+    "mssql.connections": [
+        // {
+        //     "server": "localhost",
+        //     "database": "",
+        //     "authenticationType": "SqlLogin",
+        //     "user": "sa",
+        //     "password": ""
+        // }
+        
+    ],
+
 }
