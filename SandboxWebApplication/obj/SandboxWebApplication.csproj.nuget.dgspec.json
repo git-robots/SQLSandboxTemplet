@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj": {}
+    "d:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj": {}
   },
   "projects": {
-    "D:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj": {
+    "d:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj",
+        "projectUniqueName": "d:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj",
         "projectName": "SandboxWebApplication",
-        "projectPath": "D:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj",
+        "projectPath": "d:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\SandboxWebApplication.csproj",
         "packagesPath": "C:\\Users\\jason\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\obj\\",
+        "outputPath": "d:\\Source\\SQLSandboxTemplet\\SandboxWebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jason\\AppData\\Roaming\\NuGet\\NuGet.Config",
