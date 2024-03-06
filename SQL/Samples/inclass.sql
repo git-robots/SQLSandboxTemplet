@@ -1,0 +1,4 @@
+USE ZAGIDB;
+
+SELECT *
+FROM product;
