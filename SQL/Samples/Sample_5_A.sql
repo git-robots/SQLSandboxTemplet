@@ -124,7 +124,8 @@ GROUP BY vendorid;
 
 SELECT vendorid, categoryid, COUNT(*), AVG(productprice)
 FROM product
-GROUP BY vendorid, categoryid;
+group BY vendorid, categoryid
+ORDER BY  categoryid;
 
 /* Query 20 */
 
@@ -277,7 +278,7 @@ go
 /* Alter Statement 2 */
 
 ALTER TABLE vendor DROP COLUMN vendorphonenumber;
-go
+go;
 /* Insert Statement 1 */
 
 INSERT INTO product VALUES ('7X7','Airy Sock',1000,'MK','FW');
@@ -291,7 +292,7 @@ WHERE productid = '7X7';
 /* Alter Statement 3 */
 
 ALTER TABLE product ADD discount NUMERIC(2,2);
-go
+go;
 /* Update Statement 2 */
 
 UPDATE product 

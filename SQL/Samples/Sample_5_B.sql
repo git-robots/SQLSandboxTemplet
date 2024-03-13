@@ -1,4 +1,8 @@
+/*markdown
+this is the second half of chapter 5
+*/
 
+USE ZAGIDB;
 
 /* Create View Statement 1 */
 
@@ -57,6 +61,8 @@ SELECT *
 FROM products_in_multiple_trnsc;
 
 /* Query 40 */
+
+USE HAFH;
 
 SELECT c.ccname AS client, r.ccname AS recommender
 FROM corpclient c, corpclient r
@@ -158,6 +164,8 @@ INSERT INTO cleaningdenormalized
 SELECT c.buildingid, c.aptno, s.smemberid, s.smembername
 FROM cleaning c, staffmember s
 WHERE c.smemberid = s.smemberid;
+
+USE ZAGIDB;
 
 /* SQL Query A */
 SELECT productid, productname, productprice
