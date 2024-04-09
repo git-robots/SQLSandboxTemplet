@@ -1,0 +1,161 @@
+USE ZAGIDB;
+GO
+
+/* 1. Demonstrate referential integrity - Insert into 'product' with valid 'vendorid' */
+INSERT INTO product VALUES ('7X7','Trail Mix', 10, 'PG', 'CP');
+GO
+
+/* 2. Attempt to insert into 'product' with invalid 'vendorid' (Should fail) */
+-- INSERT INTO product VALUES ('8X8','Dream Coat', 200, 'ZZ', 'FW');
+GO
+
+/* 3. Add CHECK constraint to 'product' for 'productprice' to be between 10 and 500 */
+ALTER TABLE product
+ADD CONSTRAINT chk_ProductPrice CHECK (productprice BETWEEN 10 AND 500);
+GO
+
+/* 4. Validate CHECK constraint - Try to insert a product with a price of 5 (Should fail) */
+-- INSERT INTO product VALUES ('9X9','Magic Wand', 5, 'PG', 'CP');
+GO
+
+/* 5. Create an INDEX on 'vendorname' in 'vendor' table */
+CREATE INDEX idx_vendorname ON vendor(vendorname);
+GO
+
+/* 6. Demonstrate use of the index by selecting vendors with names starting with 'P' */
+SELECT * FROM vendor WHERE vendorname LIKE 'P%';
+GO
+
+/* 7. Introduce a UNIQUE constraint on 'categoryname' in 'category' */
+ALTER TABLE category
+ADD CONSTRAINT uniq_categoryname UNIQUE (categoryname);
+GO
+
+/* 8. Demonstrate UNIQUE constraint by trying to insert a duplicate 'categoryname' (Should fail) */
+-- INSERT INTO category VALUES ('AA', 'Camping');
+GO
+
+/* 9. Show a simple JOIN between 'product' and 'vendor' */
+SELECT p.productname, v.vendorname
+FROM product p
+JOIN vendor v ON p.vendorid = v.vendorid;
+GO
+
+/* 10. Illustrate a LEFT JOIN with 'store' and 'region' */
+SELECT s.storeid, r.regionname
+FROM store s
+LEFT JOIN region r ON s.regionid = r.regionid;
+GO
+
+/* 11. Use a transaction to safely insert into multiple tables */
+BEGIN TRANSACTION;
+    INSERT INTO vendor VALUES ('AB','Adventure Base');
+    INSERT INTO category VALUES ('BK', 'Biking');
+    -- Rollback or commit based on success or failure
+    -- ROLLBACK TRANSACTION;
+    -- COMMIT TRANSACTION;
+GO
+
+/* 12. Demonstrate DELETE CASCADE by setting up foreign key (Example setup) */
+-- ALTER TABLE product ADD CONSTRAINT fk_product_vendor CASCADE ON DELETE;
+GO
+
+/* 13. DELETE a vendor and see cascading delete in 'product' (Should see related products deleted) */
+-- DELETE FROM vendor WHERE vendorid = 'AB';
+GO
+
+/* 14. Use a subquery to update 'productprice' based on 'categoryid' */
+UPDATE product
+SET productprice = productprice * 1.1
+WHERE categoryid IN (SELECT categoryid FROM category WHERE categoryname = 'Camping');
+GO
+
+/* 15. Find the average price of products by category */
+SELECT categoryid, AVG(productprice) AS AvgPrice
+FROM product
+GROUP BY categoryid;
+GO
+
+/* 16. Identify duplicate 'customername' entries */
+SELECT customername, COUNT(*)
+FROM customer
+GROUP BY customername
+HAVING COUNT(*) > 1;
+GO
+
+/* 17. Add a computed column to 'salestransaction' to show year of transaction */
+ALTER TABLE salestransaction
+ADD tyear AS YEAR(tdate);
+GO
+
+/* 18. Create a VIEW to simplify querying product details */
+CREATE VIEW ProductDetails AS
+SELECT p.productid, p.productname, v.vendorname, c.categoryname
+FROM product p
+JOIN vendor v ON p.vendorid = v.vendorid
+JOIN category c ON p.categoryid = c.categoryid;
+GO
+
+/* 19. Query from the VIEW created */
+SELECT * FROM ProductDetails;
+GO
+
+/* 20. Implement a FULL JOIN between 'customer' and 'salestransaction' */
+SELECT c.customername, s.tid
+FROM customer c
+FULL JOIN salestransaction s ON c.customerid = s.customerid;
+GO
+
+/* 21. Create a stored procedure to insert a new 'store' */
+CREATE PROCEDURE AddNewStore
+    @storeid VARCHAR(3),
+    @storezip CHAR(5),
+    @regionid CHAR(1)
+AS
+BEGIN
+    INSERT INTO store VALUES (@storeid, @storezip, @regionid);
+END;
+GO
+
+/* 22. Execute the stored procedure to add a new 'store' */
+EXEC AddNewStore 'S4', '12345', 'T';
+GO
+
+/* 23. Add a default value for 'regionid' in 'store' (Example setup) */
+ALTER TABLE store
+ADD CONSTRAINT df_regionid DEFAULT 'C' FOR regionid;
+GO
+
+/* 24. Insert into 'store' without specifying 'regionid', to use default */
+INSERT INTO store (storeid, storezip) VALUES ('S5', '54321');
+GO
+
+/* 25. Use RANK() to order products by price within each category */
+SELECT productname, productprice, RANK() OVER(PARTITION BY categoryid ORDER BY productprice DESC) AS PriceRank
+FROM product;
+GO
+
+/* 26. Demonstrate a simple pattern match to find customers with 'a' in their name */
+SELECT * FROM customer WHERE customername LIKE '%a%';
+GO
+
+/* 27. Update 'salestransaction' to set 'tdate' to current date for demonstration */
+UPDATE salestransaction
+SET tdate = GETDATE()
+WHERE tid = 'T111';
+GO
+
+/* 28. Demonstrate deleting a 'category' without affecting 'product' directly (Requires previous setup) */
+-- DELETE FROM category WHERE categoryid = 'BK';
+GO
+
+/* 29. Show how to use a CTE for hierarchical data querying (Example setup) */
+-- WITH RecursiveCTE AS (SELECT ... -- Example placeholder)
+-- SELECT * FROM RecursiveCTE;
+GO
+
+/* 30. Demonstrate dynamic SQL to select from 'vendor' (For advanced users) */
+-- EXEC sp_executesql N'SELECT * FROM vendor WHERE vendorname LIKE @name', N'@name NVARCHAR(25)', @name = N'P%';
+GO
+
+
